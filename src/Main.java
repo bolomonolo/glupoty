@@ -1,37 +1,23 @@
 public class Main {
     public static void main(String[] args) {
-        BoardGenerator generator = new BoardGenerator();
-        Checker checker = new Checker();
-        // generuje se tablice
-        int[][] board = generator.generateBoard(3,5);
-        // przypisuje do głównego checkera checker pomocniczy i tablice
-        checkerMain mainChecker = new checkerMain(board, checker, generator);
-
-        //staram się dodać kolejną królowa
-        mainChecker.doingMove();
-
-
-        //staram się dodać kolejną królowa
-        mainChecker.doingMove();
-
-
-        //staram się dodać kolejną królowa
-        mainChecker.doingMove();
-
-        //staram się dodać kolejną królowa
-        mainChecker.doingMove();
-
-        mainChecker.generator.print(mainChecker.board);
+        Board board = new Board(3,4);
+        board.print();
+        board.addIlligalQueen(2,0);
+        board.print();
+        System.out.println(board.check(1,1,1,0));
 
 
 
         }
 
-    public static void testowanko(int[][] board, BoardGenerator generator) {
-        generator.print(board);
-        generator.addQueen(board);
-
+    public static void testing(int[][] board, BoardGenerator generator, int iterations, checkerMain mainChecker) {
+        for (int i = 0; i < iterations; i++) {
+            mainChecker.doingMove();
+        } mainChecker.generator.print(mainChecker.board);
     }
 
+    public Main() {
+
+    }
 }
 
